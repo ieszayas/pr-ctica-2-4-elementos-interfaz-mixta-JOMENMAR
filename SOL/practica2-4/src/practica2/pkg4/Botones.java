@@ -20,6 +20,8 @@ public class Botones extends javax.swing.JFrame {
      */
     public Botones() {
         initComponents();
+        Tick.setVisible(false);
+        Tick_f.setVisible(false);
     }
 
     /**
@@ -58,6 +60,8 @@ public class Botones extends javax.swing.JFrame {
         Slider_f = new javax.swing.JSlider();
         jSeparator1 = new javax.swing.JSeparator();
         Toggle_f = new javax.swing.JToggleButton();
+        Tick = new javax.swing.JLabel();
+        Tick_f = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +114,23 @@ public class Botones extends javax.swing.JFrame {
         });
 
         Caja.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Caja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CajaActionPerformed(evt);
+            }
+        });
+
+        Slider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SliderMouseReleased(evt);
+            }
+        });
+
+        Spinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerStateChanged(evt);
+            }
+        });
 
         Toggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/b_off.png"))); // NOI18N
         Toggle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -167,6 +188,11 @@ public class Botones extends javax.swing.JFrame {
         Toggle_f.setRolloverEnabled(false);
         Toggle_f.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/b_on.png"))); // NOI18N
 
+        Tick.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/green-check-mark-icon-with-circle-tick-box-check-list-circle-frame-checkbox-symbol-sign-png.png"))); // NOI18N
+
+        Tick_f.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/green-check-mark-icon-with-circle-tick-box-check-list-circle-frame-checkbox-symbol-sign-png.png"))); // NOI18N
+        Tick_f.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,37 +204,40 @@ public class Botones extends javax.swing.JFrame {
                         .addComponent(jSeparator1)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Radio_1_f)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Check_1_f))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Radio_2_f)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Check_2_f)))
+                                .addGap(38, 59, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Caja_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(Correo_f)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(112, 112, 112)
                                         .addComponent(Correo_Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Radio_1_f)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Check_1_f))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Radio_2_f)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Check_2_f)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Caja_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(Radio_3_f)
                                         .addGap(18, 18, 18)
-                                        .addComponent(Check_3_f)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Toggle_f)))
+                                        .addComponent(Check_3_f)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Toggle_f)
+                            .addComponent(Tick_f))
+                        .addGap(120, 120, 120))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -235,12 +264,14 @@ public class Botones extends javax.swing.JFrame {
                                             .addComponent(Slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(Toggle)))
                                     .addComponent(Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(212, 212, 212)))
-                        .addGap(55, 55, 55))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Correo)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Correo_Texto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Correo)
+                                        .addGap(342, 342, 342)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Tick)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -266,10 +297,11 @@ public class Botones extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Correo)
-                    .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tick))
+                .addGap(28, 28, 28)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Radio_1_f)
                     .addComponent(Check_1_f)
@@ -288,26 +320,35 @@ public class Botones extends javax.swing.JFrame {
                             .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Radio_3_f)))
                     .addComponent(Toggle_f))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Correo_f)
+                    .addComponent(Tick_f)
                     .addComponent(Correo_Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Correo_TextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Correo_TextoKeyReleased
-        String correo = Correo_Texto.getText().trim();
 
+        Correo_Texto_f.setText(Correo_Texto.getText());
         String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 
-        if (!correo.matches(regex)) {
+        if (!Correo_Texto.getText().matches(regex)) {
             Correo_Texto.setBorder(new LineBorder(Color.RED));
-
+            Correo_Texto_f.setBorder(new LineBorder(Color.RED));
+            Tick.setVisible(false);
+            Tick_f.setVisible(false);
             return;
         }
+        
+        Tick.setVisible(true);
+        Tick_f.setVisible(true);
+        
+        
+        
     }//GEN-LAST:event_Correo_TextoKeyReleased
 
     private void ToggleMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ToggleMouseReleased
@@ -353,10 +394,34 @@ public class Botones extends javax.swing.JFrame {
     }//GEN-LAST:event_Check_3MouseReleased
 
     private void TextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextoKeyReleased
-                
+        
+        String aux;
+        
+        for (int i = Texto.getText().length(); i > 0; i--) {
+            aux = Texto.getText().charAt(i);
+        }
         Texto_f.setText(Texto.getText());
         
     }//GEN-LAST:event_TextoKeyReleased
+
+    private void CajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CajaActionPerformed
+        
+        Caja_f.setSelectedItem(Caja.getSelectedItem());
+        
+    }//GEN-LAST:event_CajaActionPerformed
+
+    private void SliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SliderMouseReleased
+        
+        Slider_f.setValue(Slider.getValue());
+        Slider_f.setExtent(Slider.getExtent());
+        
+    }//GEN-LAST:event_SliderMouseReleased
+
+    private void SpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerStateChanged
+        
+        Spinner_f.setValue(Spinner.getValue());
+        
+    }//GEN-LAST:event_SpinnerStateChanged
 
     /**
      * @param args the command line arguments
@@ -418,6 +483,8 @@ public class Botones extends javax.swing.JFrame {
     private javax.swing.JSpinner Spinner_f;
     private javax.swing.JTextField Texto;
     private javax.swing.JTextField Texto_f;
+    private javax.swing.JLabel Tick;
+    private javax.swing.JLabel Tick_f;
     private javax.swing.JToggleButton Toggle;
     private javax.swing.JToggleButton Toggle_f;
     private javax.swing.JSeparator jSeparator1;
