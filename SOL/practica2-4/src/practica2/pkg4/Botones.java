@@ -4,6 +4,11 @@
  */
 package practica2.pkg4;
 
+import java.awt.Color;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.border.*;
+
 /**
  *
  * @author DAM2_05
@@ -33,68 +38,134 @@ public class Botones extends javax.swing.JFrame {
         Check_3 = new javax.swing.JCheckBox();
         Check_2 = new javax.swing.JCheckBox();
         Texto = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jSlider1 = new javax.swing.JSlider();
-        jSpinner1 = new javax.swing.JSpinner();
+        Caja = new javax.swing.JComboBox<>();
+        Slider = new javax.swing.JSlider();
+        Spinner = new javax.swing.JSpinner();
         Toggle = new javax.swing.JToggleButton();
         Correo = new javax.swing.JLabel();
         Correo_Texto = new javax.swing.JTextField();
-        Radio_4 = new javax.swing.JRadioButton();
-        Radio_5 = new javax.swing.JRadioButton();
-        Radio_6 = new javax.swing.JRadioButton();
-        Correo1 = new javax.swing.JLabel();
-        Check_4 = new javax.swing.JCheckBox();
-        Check_5 = new javax.swing.JCheckBox();
-        Check_6 = new javax.swing.JCheckBox();
-        Correo_Texto1 = new javax.swing.JTextField();
-        Texto1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jSpinner2 = new javax.swing.JSpinner();
-        Toggle1 = new javax.swing.JToggleButton();
-        jSlider2 = new javax.swing.JSlider();
+        Radio_1_f = new javax.swing.JRadioButton();
+        Radio_2_f = new javax.swing.JRadioButton();
+        Radio_3_f = new javax.swing.JRadioButton();
+        Correo_f = new javax.swing.JLabel();
+        Check_1_f = new javax.swing.JCheckBox();
+        Check_2_f = new javax.swing.JCheckBox();
+        Check_3_f = new javax.swing.JCheckBox();
+        Correo_Texto_f = new javax.swing.JTextField();
+        Texto_f = new javax.swing.JTextField();
+        Caja_f = new javax.swing.JComboBox<>();
+        Spinner_f = new javax.swing.JSpinner();
+        Slider_f = new javax.swing.JSlider();
+        jSeparator1 = new javax.swing.JSeparator();
+        Toggle_f = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Radio_1.setText("Opcion 1");
+        Radio_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Radio_1MouseReleased(evt);
+            }
+        });
 
         Radio_3.setText("Opcion 3");
+        Radio_3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Radio_3MouseReleased(evt);
+            }
+        });
 
         Radio_2.setText("Opcion 2");
+        Radio_2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Radio_2MouseReleased(evt);
+            }
+        });
 
         Check_1.setText("Opcion 4");
+        Check_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Check_1MouseReleased(evt);
+            }
+        });
 
         Check_3.setText("Opcion 6");
+        Check_3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Check_3MouseReleased(evt);
+            }
+        });
 
         Check_2.setText("Opcion 5");
+        Check_2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Check_2MouseReleased(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Texto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextoKeyReleased(evt);
+            }
+        });
 
+        Caja.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        Toggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/b_off.png"))); // NOI18N
         Toggle.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Toggle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ToggleActionPerformed(evt);
+        Toggle.setRolloverEnabled(false);
+        Toggle.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/b_on.png"))); // NOI18N
+        Toggle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ToggleMouseReleased(evt);
             }
         });
 
         Correo.setText("Correo");
 
-        Radio_4.setText("Opcion 1");
+        Correo_Texto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Correo_TextoKeyReleased(evt);
+            }
+        });
 
-        Radio_5.setText("Opcion 2");
+        Radio_1_f.setText("Opcion 1");
+        Radio_1_f.setEnabled(false);
 
-        Radio_6.setText("Opcion 3");
+        Radio_2_f.setText("Opcion 2");
+        Radio_2_f.setEnabled(false);
 
-        Correo1.setText("Correo");
+        Radio_3_f.setText("Opcion 3");
+        Radio_3_f.setEnabled(false);
 
-        Check_4.setText("Opcion 4");
+        Correo_f.setText("Correo");
+        Correo_f.setEnabled(false);
 
-        Check_5.setText("Opcion 5");
+        Check_1_f.setText("Opcion 4");
+        Check_1_f.setEnabled(false);
 
-        Check_6.setText("Opcion 6");
+        Check_2_f.setText("Opcion 5");
+        Check_2_f.setEnabled(false);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Check_3_f.setText("Opcion 6");
+        Check_3_f.setEnabled(false);
 
-        Toggle1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Correo_Texto_f.setEnabled(false);
+
+        Texto_f.setEnabled(false);
+
+        Caja_f.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Caja_f.setEnabled(false);
+
+        Spinner_f.setEnabled(false);
+
+        Slider_f.setEnabled(false);
+
+        Toggle_f.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/b_off.png"))); // NOI18N
+        Toggle_f.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Toggle_f.setEnabled(false);
+        Toggle_f.setRolloverEnabled(false);
+        Toggle_f.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/media/b_on.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,63 +175,73 @@ public class Botones extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeparator1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Radio_1)
-                                .addGap(18, 18, 18)
-                                .addComponent(Check_1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Radio_2)
-                                .addGap(18, 18, 18)
-                                .addComponent(Check_2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Radio_3)
-                                .addGap(18, 18, 18)
-                                .addComponent(Check_3)))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(Correo_f)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Correo_Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Radio_1_f)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(Check_1_f))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(Radio_2_f)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(Check_2_f)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Caja_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(Radio_3_f)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Check_3_f)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Toggle, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Toggle1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Radio_6)
-                        .addGap(18, 18, 18)
-                        .addComponent(Check_6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Correo1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Correo_Texto1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(Correo)
-                                .addGap(97, 97, 97)
-                                .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Toggle_f)))
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Radio_3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Check_3))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Radio_1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(Check_1))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Radio_2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(Check_2))))
+                                .addGap(38, 38, 38)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Radio_4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Check_4))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Radio_5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Check_5)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Texto1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Caja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Toggle)))
+                                    .addComponent(Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(212, 212, 212)))
+                        .addGap(55, 55, 55))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Correo)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,53 +251,112 @@ public class Botones extends javax.swing.JFrame {
                     .addComponent(Radio_1)
                     .addComponent(Check_1)
                     .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Radio_2)
                     .addComponent(Check_2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Toggle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Caja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Toggle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Radio_3)
                     .addComponent(Check_3)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Correo)
                     .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(40, 40, 40)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Radio_4)
-                    .addComponent(Check_4)
-                    .addComponent(Texto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Radio_1_f)
+                    .addComponent(Check_1_f)
+                    .addComponent(Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Radio_5)
-                        .addComponent(Check_5)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Toggle1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Radio_2_f)
+                            .addComponent(Check_2_f)
+                            .addComponent(Caja_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Check_3_f)
+                            .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Radio_3_f)))
+                    .addComponent(Toggle_f))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Radio_6)
-                    .addComponent(Check_6)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Correo1)
-                    .addComponent(Correo_Texto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(Correo_f)
+                    .addComponent(Correo_Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ToggleActionPerformed
+    private void Correo_TextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Correo_TextoKeyReleased
+        String correo = Correo_Texto.getText().trim();
+
+        String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+
+        if (!correo.matches(regex)) {
+            Correo_Texto.setBorder(new LineBorder(Color.RED));
+
+            return;
+        }
+    }//GEN-LAST:event_Correo_TextoKeyReleased
+
+    private void ToggleMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ToggleMouseReleased
+
+        Toggle_f.setSelected(Toggle.isSelected());
+        
+    }//GEN-LAST:event_ToggleMouseReleased
+
+    private void Radio_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Radio_1MouseReleased
+        
+        Radio_1_f.setSelected(Radio_1.isSelected());
+        
+    }//GEN-LAST:event_Radio_1MouseReleased
+
+    private void Radio_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Radio_2MouseReleased
+        
+        Radio_2_f.setSelected(Radio_2.isSelected());
+        
+    }//GEN-LAST:event_Radio_2MouseReleased
+
+    private void Radio_3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Radio_3MouseReleased
+        
+        Radio_3_f.setSelected(Radio_3.isSelected());
+        
+    }//GEN-LAST:event_Radio_3MouseReleased
+
+    private void Check_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Check_1MouseReleased
+        
+        Check_1_f.setSelected(Check_1.isSelected());
+        
+    }//GEN-LAST:event_Check_1MouseReleased
+
+    private void Check_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Check_2MouseReleased
+                
+        Check_2_f.setSelected(Check_2.isSelected());
+        
+    }//GEN-LAST:event_Check_2MouseReleased
+
+    private void Check_3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Check_3MouseReleased
+                
+        Check_3_f.setSelected(Check_3.isSelected());
+        
+    }//GEN-LAST:event_Check_3MouseReleased
+
+    private void TextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextoKeyReleased
+                
+        Texto_f.setText(Texto.getText());
+        
+    }//GEN-LAST:event_TextoKeyReleased
 
     /**
      * @param args the command line arguments
@@ -254,31 +394,32 @@ public class Botones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Caja;
+    private javax.swing.JComboBox<String> Caja_f;
     private javax.swing.JCheckBox Check_1;
+    private javax.swing.JCheckBox Check_1_f;
     private javax.swing.JCheckBox Check_2;
+    private javax.swing.JCheckBox Check_2_f;
     private javax.swing.JCheckBox Check_3;
-    private javax.swing.JCheckBox Check_4;
-    private javax.swing.JCheckBox Check_5;
-    private javax.swing.JCheckBox Check_6;
+    private javax.swing.JCheckBox Check_3_f;
     private javax.swing.JLabel Correo;
-    private javax.swing.JLabel Correo1;
     private javax.swing.JTextField Correo_Texto;
-    private javax.swing.JTextField Correo_Texto1;
+    private javax.swing.JTextField Correo_Texto_f;
+    private javax.swing.JLabel Correo_f;
     private javax.swing.JRadioButton Radio_1;
+    private javax.swing.JRadioButton Radio_1_f;
     private javax.swing.JRadioButton Radio_2;
+    private javax.swing.JRadioButton Radio_2_f;
     private javax.swing.JRadioButton Radio_3;
-    private javax.swing.JRadioButton Radio_4;
-    private javax.swing.JRadioButton Radio_5;
-    private javax.swing.JRadioButton Radio_6;
+    private javax.swing.JRadioButton Radio_3_f;
+    private javax.swing.JSlider Slider;
+    private javax.swing.JSlider Slider_f;
+    private javax.swing.JSpinner Spinner;
+    private javax.swing.JSpinner Spinner_f;
     private javax.swing.JTextField Texto;
-    private javax.swing.JTextField Texto1;
+    private javax.swing.JTextField Texto_f;
     private javax.swing.JToggleButton Toggle;
-    private javax.swing.JToggleButton Toggle1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JToggleButton Toggle_f;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
