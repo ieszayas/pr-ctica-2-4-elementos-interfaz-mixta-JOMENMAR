@@ -7,6 +7,7 @@ package practica2.pkg4;
 import java.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JRadioButton;
 import javax.swing.border.*;
 
 /**
@@ -22,6 +23,44 @@ public class Botones extends javax.swing.JFrame {
         initComponents();
         Tick.setVisible(false);
         Tick_f.setVisible(false);
+    }
+    
+    private void apagarOtrosBotones(JRadioButton boton) {
+        int esboton = 0;
+        if (boton.equals(Radio_1)) {
+            esboton = 1;
+        } 
+        if (boton.equals(Radio_2)) {
+            esboton = 2;
+        } 
+        if (boton.equals(Radio_3)) {
+            esboton = 3;
+        }
+ 
+        // apagar los otros botones
+        switch (esboton) {
+            case 1:
+                Radio_2.setSelected(false);
+                Radio_2_f.setSelected(false);
+                Radio_3.setSelected(false);
+                Radio_3_f.setSelected(false);
+                break;
+            case 2:
+                Radio_1.setSelected(false);
+                Radio_1_f.setSelected(false);
+                Radio_3.setSelected(false);
+                Radio_3_f.setSelected(false);
+                break;
+            case 3:
+                Radio_1.setSelected(false);
+                Radio_1_f.setSelected(false);
+                Radio_2.setSelected(false);
+                Radio_2_f.setSelected(false);
+                break;
+            default:
+                // Si ningún botón coincide, no hace nada
+                break;
+        }
     }
 
     /**
@@ -295,10 +334,11 @@ public class Botones extends javax.swing.JFrame {
                     .addComponent(Check_3)
                     .addComponent(Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Correo)
-                    .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Tick))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Tick)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Correo)
+                        .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
@@ -344,6 +384,9 @@ public class Botones extends javax.swing.JFrame {
             return;
         }
         
+        Correo_Texto.setBorder(new LineBorder(Color.GREEN));
+        Correo_Texto_f.setBorder(new LineBorder(Color.GREEN));
+        
         Tick.setVisible(true);
         Tick_f.setVisible(true);
         
@@ -360,18 +403,21 @@ public class Botones extends javax.swing.JFrame {
     private void Radio_1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Radio_1MouseReleased
         
         Radio_1_f.setSelected(Radio_1.isSelected());
+        apagarOtrosBotones(Radio_1);
         
     }//GEN-LAST:event_Radio_1MouseReleased
 
     private void Radio_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Radio_2MouseReleased
         
         Radio_2_f.setSelected(Radio_2.isSelected());
+        apagarOtrosBotones(Radio_2);
         
     }//GEN-LAST:event_Radio_2MouseReleased
 
     private void Radio_3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Radio_3MouseReleased
         
         Radio_3_f.setSelected(Radio_3.isSelected());
+        apagarOtrosBotones(Radio_3);
         
     }//GEN-LAST:event_Radio_3MouseReleased
 
@@ -395,12 +441,12 @@ public class Botones extends javax.swing.JFrame {
 
     private void TextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextoKeyReleased
         
-        String aux;
+        String aux = "";
         
-        for (int i = Texto.getText().length(); i > 0; i--) {
-            aux = Texto.getText().charAt(i);
+        for (int i = Texto.getText().length()-1; i >= 0; i--) {
+            aux = aux + Texto.getText().charAt(i);
         }
-        Texto_f.setText(Texto.getText());
+        Texto_f.setText(aux);
         
     }//GEN-LAST:event_TextoKeyReleased
 
