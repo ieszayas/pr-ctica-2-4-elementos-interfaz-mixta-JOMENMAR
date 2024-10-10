@@ -23,6 +23,8 @@ public class Botones extends javax.swing.JFrame {
         initComponents();
         Tick.setVisible(false);
         Tick_f.setVisible(false);
+        Texto_Ver.setVisible(false);
+        Texto_Ver_f.setVisible(false);
     }
     
     private void apagarOtrosBotones(JRadioButton boton) {
@@ -101,6 +103,8 @@ public class Botones extends javax.swing.JFrame {
         Toggle_f = new javax.swing.JToggleButton();
         Tick = new javax.swing.JLabel();
         Tick_f = new javax.swing.JLabel();
+        Texto_Ver = new javax.swing.JLabel();
+        Texto_Ver_f = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +163,11 @@ public class Botones extends javax.swing.JFrame {
             }
         });
 
+        Slider.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                SliderMouseDragged(evt);
+            }
+        });
         Slider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 SliderMouseReleased(evt);
@@ -232,6 +241,11 @@ public class Botones extends javax.swing.JFrame {
         Tick_f.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/green-check-mark-icon-with-circle-tick-box-check-list-circle-frame-checkbox-symbol-sign-png.png"))); // NOI18N
         Tick_f.setEnabled(false);
 
+        Texto_Ver.setText("Correo Verificado");
+
+        Texto_Ver_f.setText("Correo Verificado");
+        Texto_Ver_f.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,7 +287,10 @@ public class Botones extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Toggle_f)
-                            .addComponent(Tick_f))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Tick_f)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Texto_Ver_f)))
                         .addGap(120, 120, 120))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,7 +327,9 @@ public class Botones extends javax.swing.JFrame {
                                         .addComponent(Correo)
                                         .addGap(342, 342, 342)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Tick)))
+                                .addComponent(Tick)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Texto_Ver)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -335,36 +354,41 @@ public class Botones extends javax.swing.JFrame {
                     .addComponent(Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Tick)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Correo)
-                        .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Radio_1_f)
-                    .addComponent(Check_1_f)
-                    .addComponent(Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Tick)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Correo)
+                                .addComponent(Correo_Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Radio_2_f)
-                            .addComponent(Check_2_f)
-                            .addComponent(Caja_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Radio_1_f)
+                            .addComponent(Check_1_f)
+                            .addComponent(Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Slider_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Check_3_f)
-                            .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Radio_3_f)))
-                    .addComponent(Toggle_f))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Correo_f)
-                    .addComponent(Tick_f)
-                    .addComponent(Correo_Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Radio_2_f)
+                                    .addComponent(Check_2_f)
+                                    .addComponent(Caja_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Check_3_f)
+                                    .addComponent(Spinner_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Radio_3_f)))
+                            .addComponent(Toggle_f))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Correo_f)
+                            .addComponent(Correo_Texto_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Texto_Ver_f)
+                                .addComponent(Tick_f))))
+                    .addComponent(Texto_Ver))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -381,6 +405,8 @@ public class Botones extends javax.swing.JFrame {
             Correo_Texto_f.setBorder(new LineBorder(Color.RED));
             Tick.setVisible(false);
             Tick_f.setVisible(false);
+            Texto_Ver.setVisible(false);
+            Texto_Ver_f.setVisible(false);
             return;
         }
         
@@ -389,7 +415,8 @@ public class Botones extends javax.swing.JFrame {
         
         Tick.setVisible(true);
         Tick_f.setVisible(true);
-        
+        Texto_Ver.setVisible(true);
+        Texto_Ver_f.setVisible(true);
         
         
     }//GEN-LAST:event_Correo_TextoKeyReleased
@@ -440,13 +467,10 @@ public class Botones extends javax.swing.JFrame {
     }//GEN-LAST:event_Check_3MouseReleased
 
     private void TextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextoKeyReleased
+       
+        StringBuilder builder = new StringBuilder(Texto.getText());
         
-        String aux = "";
-        
-        for (int i = Texto.getText().length()-1; i >= 0; i--) {
-            aux = aux + Texto.getText().charAt(i);
-        }
-        Texto_f.setText(aux);
+        Texto_f.setText(builder.reverse().toString());
         
     }//GEN-LAST:event_TextoKeyReleased
 
@@ -468,6 +492,13 @@ public class Botones extends javax.swing.JFrame {
         Spinner_f.setValue(Spinner.getValue());
         
     }//GEN-LAST:event_SpinnerStateChanged
+
+    private void SliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SliderMouseDragged
+        
+        Slider_f.setValue(Slider.getValue());
+        Slider_f.setExtent(Slider.getExtent());
+        
+    }//GEN-LAST:event_SliderMouseDragged
 
     /**
      * @param args the command line arguments
@@ -528,6 +559,8 @@ public class Botones extends javax.swing.JFrame {
     private javax.swing.JSpinner Spinner;
     private javax.swing.JSpinner Spinner_f;
     private javax.swing.JTextField Texto;
+    private javax.swing.JLabel Texto_Ver;
+    private javax.swing.JLabel Texto_Ver_f;
     private javax.swing.JTextField Texto_f;
     private javax.swing.JLabel Tick;
     private javax.swing.JLabel Tick_f;
